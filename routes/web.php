@@ -43,4 +43,7 @@ Route::get('/login', function () {
 
 Route::get('/portal', function () {
     return view('portal');
-});
+})->middleware('LoggedinCheck');
+
+Route::post('/login', 'App\Http\Controllers\LoginController@store'); 
+Route::post('/logout', 'App\Http\Controllers\Logout@store'); 
